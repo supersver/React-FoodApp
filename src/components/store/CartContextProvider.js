@@ -13,6 +13,8 @@ const cartReducer = (state, action) => {
     const updatedTotalAmount =
       state.totalAmount + action.item.price * action.item.amount;
 
+    // ToDo = fix the bug which causes multiplication of cart item number
+
     const existingCartItemIndex = state.items.findIndex(
       (item) => item.id === action.item.id
     );
@@ -20,7 +22,6 @@ const cartReducer = (state, action) => {
     let updatedItems;
 
     // Checking if any item already exists inside cart
-
     if (existingCartItem) {
       const updatedItem = {
         ...existingCartItem,
@@ -64,8 +65,13 @@ const cartReducer = (state, action) => {
       items: updatedItems,
       totalAmount: updatedTotalAmount,
     };
-  }
 
+  }
+  
+  if (action.type === "CLEAR") {
+    return defaultCartState;
+  }
+  
   return defaultCartState;
 };
 
@@ -83,11 +89,16 @@ const CartContextProvider = (props) => {
     dispatchCartAction({ type: "REMOVE", id: id });
   };
 
+  const cartEmptyHandler = () => {
+    dispatchCartAction({ type: "CLEAR" });
+  };
+
   const cartContext = {
     items: cartState.items,
     totalAmount: cartState.totalAmount,
     addItem: addItemToCartHandler,
     removeItem: removeItemCartHandler,
+    emptyCart: cartEmptyHandler,
   };
 
   return (
