@@ -9,11 +9,12 @@ const defaultCartState = {
 
 const cartReducer = (state, action) => {
   // Logic for adding items within cart
+
   if (action.type === "ADD") {
     const updatedTotalAmount =
       state.totalAmount + action.item.price * action.item.amount;
 
-    // ToDo = fix the bug which causes multiplication of cart item number
+    // ToDo = fix the bug which causes multiplication of cart item number by 2
 
     const existingCartItemIndex = state.items.findIndex(
       (item) => item.id === action.item.id

@@ -16,6 +16,7 @@ const Overlay = (props) => {
   );
 };
 
+// Getting id from index.html
 const portel = document.getElementById("overlay");
 
 const Modal = (props) => {
