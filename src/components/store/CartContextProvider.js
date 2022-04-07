@@ -33,6 +33,7 @@ const cartReducer = (state, action) => {
     } else {
       updatedItems = state.items.concat(action.item);
     }
+    
 
     return {
       items: updatedItems,
@@ -49,7 +50,7 @@ const cartReducer = (state, action) => {
     const updatedTotalAmount = state.totalAmount - existingItem.price;
     let updatedItems;
     if (existingItem.amount === 1) {
-      /* The existing item the amount is equal to one which means
+      /* The existing item amount is equal to one which means
          it's the last item of that type in the cart, which we wanna remove.
          In which case we wanna remove the entire item */
 
@@ -66,7 +67,6 @@ const cartReducer = (state, action) => {
       items: updatedItems,
       totalAmount: updatedTotalAmount,
     };
-
   }
   
   if (action.type === "CLEAR") {

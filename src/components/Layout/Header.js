@@ -1,6 +1,6 @@
 import { Fragment } from "react/cjs/react.production.min";
 import classes from "./Header.module.css";
-import mealImg from "../../components/assets/meals.jpg";
+import mealImg from "../../components/assets/meals3.jpg";
 import HeadCartBtn from "./HeadCartBtn";
 
 const Header = (props) => {

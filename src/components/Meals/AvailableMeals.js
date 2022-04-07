@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import MealItem from "./MealItem/MealItem";
 import Card from "../UI/Card";
 import classes from "../Meals/AvailableMeals.module.css";
+import LoadingSpinner from "../UI/LoadingSpinner";
 
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
@@ -41,11 +42,12 @@ const AvailableMeals = () => {
     });
   }, []);
 
+  // showing loading spinner if in loading state
   if (loading) {
     return (
-      <section className={classes.LoadingText}>
-        <p>Loading...</p>
-      </section>
+      <div className="centered">
+     <LoadingSpinner  />
+     </div>
     );
   }
 

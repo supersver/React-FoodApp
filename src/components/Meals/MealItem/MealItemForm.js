@@ -37,7 +37,7 @@ const MealItemForm = (props) => {
           step: "1",
           defaultValue: "1",
         }}
-      />
+        />
       <button>Add</button>
       {!amountIsValid && <p>Enter valid details!!</p>}
     </form>
@@ -46,4 +46,4 @@ const MealItemForm = (props) => {
 
 export default MealItemForm;
 
-// This component is for add items to cart
+// Menu list

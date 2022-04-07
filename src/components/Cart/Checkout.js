@@ -21,6 +21,7 @@ const Checkout = (props) => {
     const enteredAddress = addressInputRef.current.value;
     const enteredCity = cityInputRef.current.value;
 
+    // Validating input entered by user
     const enteredNameIsValid = !isEmpty(enteredName);
     const enteredAddressIsValid = !isEmpty(enteredAddress);
     const enteredCityIsValid = !isEmpty(enteredCity);
@@ -34,9 +35,11 @@ const Checkout = (props) => {
     const formIsValid =
       enteredNameIsValid && enteredAddressIsValid && enteredCityIsValid;
 
+      // If form inputs are invalid then return nothing
     if (!formIsValid) {
       return;
     }
+
     // Submit cart data
     props.onSubmit({
       name: enteredName,

@@ -93,14 +93,17 @@ const Cart = (props) => {
 
   // Order confirmation
   const submittingCartData = <p>Placing Order...</p>;
-  
-  const submittedCartData = 
-  <Fragment>
-  <p>Order Placed!!</p>
-  <div className={classes.actions}>
-  <button className={classes.button} onClick={props.onCartHide} >Close</button>
-  </div>
-  </Fragment>
+
+  const submittedCartData = (
+    <Fragment>
+      <p>Order Placed!!</p>
+      <div className={classes.actions}>
+        <button className={classes.button} onClick={props.onCartHide}>
+          Close
+        </button>
+      </div>
+    </Fragment>
+  );
 
   return (
     <Modal onCartHide={props.onCartHide}>
